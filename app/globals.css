@@ -1,4 +1,4 @@
-@tailwind base;
+  @tailwind base;
   @tailwind components;
   @tailwind utilities;
 
@@ -36,21 +36,15 @@
       text-wrap: balance;
     }
   }
-canvas {
-  touch-action: auto !important;
-  pointer-events: auto;
-}
-
-html,
-body,
-#__next {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* Important: allow vertical scroll only */
-  overscroll-behavior-y: auto;
+  html,
+  body,
+  #__next {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+   
   -webkit-overflow-scrolling: touch;
-  touch-action: pan-y;
-}
-
+    touch-action: manipulation; /* allow scrolling, disable double-tap zoom */
+  }
 

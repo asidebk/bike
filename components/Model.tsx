@@ -3,11 +3,11 @@ import { useEffect, useRef, useState } from "react"
 import { Group } from "three"
 import { useFrame } from "@react-three/fiber"
 
-useGLTF.preload("/robot_playground.glb")
+useGLTF.preload("bike.glb")
 
 export default function Model() {
   const group = useRef<Group>(null)
-  const { scene, animations } = useGLTF("/robot_playground.glb")
+  const { scene, animations } = useGLTF("/bike.glb")
   const { actions, names } = useAnimations(animations, scene)
   const scroll = useScroll()
   const [isMobile, setIsMobile] = useState(false)
