@@ -36,6 +36,116 @@
       text-wrap: balance;
     }
   }
+
+  /* ---- Bike parts scroll overlay ---- */
+  .parts-intro {
+    position: absolute;
+    top: 4vh;
+    left: clamp(1.25rem, 6vw, 6rem);
+    text-align: left;
+    pointer-events: none;
+    color: #0a0a0a;
+    width: min(80vw, 420px);
+  }
+  .parts-intro__eyebrow {
+    margin: 0 0 0.4rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+  .parts-intro__title {
+    margin: 0;
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 800;
+    line-height: 1.05;
+  }
+  .parts-intro__hint {
+    margin: 1.2rem 0 0;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    opacity: 0.55;
+    animation: parts-bob 1.8s ease-in-out infinite;
+  }
+
+  .part-card {
+    width: min(86vw, 340px);
+    padding: 1.5rem 1.6rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 18px 50px -12px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    color: #0a0a0a;
+    will-change: opacity, transform;
+  }
+  .part-card__index {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #ff4d2d;
+  }
+  .part-card__title {
+    margin: 0.3rem 0 0.6rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+  .part-card__desc {
+    margin: 0 0 1rem;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    opacity: 0.78;
+  }
+  .part-card__specs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .part-card__specs li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  .part-card__specs li span:first-child {
+    opacity: 0.55;
+  }
+  .part-card__specs li span:last-child {
+    font-weight: 600;
+  }
+
+  @keyframes parts-bob {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(6px);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .parts-intro,
+    .part-card {
+      color: #f5f5f5;
+    }
+    .part-card {
+      background: rgba(20, 20, 22, 0.6);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    .part-card__specs {
+      border-top-color: rgba(255, 255, 255, 0.12);
+    }
+    .part-card__specs li {
+      border-bottom-color: rgba(255, 255, 255, 0.07);
+    }
+  }
   html,
   body,
   #__next {

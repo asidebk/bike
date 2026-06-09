@@ -2,8 +2,9 @@
 
 import { Canvas, useThree } from "@react-three/fiber"
 import Model from "./Model"
+import BikeParts from "./BikeParts"
 import { Suspense } from "react"
-import { useProgress, Html, ScrollControls } from "@react-three/drei"
+import { useProgress, Html, ScrollControls, Scroll } from "@react-three/drei"
 
 function Loader() {
   const { progress, active } = useProgress()
@@ -18,6 +19,10 @@ export default function Scene() {
       <Suspense fallback={<Loader />}>
         <ScrollControls damping={0.5} pages={3}>
           <Model />
+          {/* HTML overlay that scrolls in sync with the bike explode animation */}
+          <Scroll html style={{ width: "100%" }}>
+            <BikeParts />
+          </Scroll>
         </ScrollControls>
       </Suspense>
     </Canvas>
